@@ -1,0 +1,15 @@
+<%= render partial: "header" %>
+
+<h4>Pins</h4>
+
+<%= render :partial => 'errors', :locals => {:pin => @pin} %>
+
+<br/><br/>
+<%= render :partial => 'form', :locals => {:pin => @pin} %>
+<br/>
+
+<ul>
+<% @pins.each do |pin| %>
+  <li><%= link_to(pin.user.handle, "/users/#{pin.user.id}") %>: <%= pin.body %></li>
+<% end %>
+</ol>
