@@ -1,4 +1,4 @@
-<%= render partial: "header" %>
+
 
 <h4>Pins</h4>
 
@@ -8,8 +8,12 @@
 <%= render :partial => 'form', :locals => {:pin => @pin} %>
 <br/>
 
-<ul>
+<ol>
 <% @pins.each do |pin| %>
-  <li><%= link_to(pin.user.handle, "/users/#{pin.user.id}") %>: <%= pin.body %></li>
+	<li>
+  <%="#{pin.name}: #{pin.description}"%>
+  <br/>
+  <%= image_tag pin.avatar.url(:medium) %>
+  <li>
 <% end %>
 </ol>

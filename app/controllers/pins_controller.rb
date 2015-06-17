@@ -9,7 +9,7 @@ class PinsController < ApplicationController
   end
 
   def create
-    @tweet = pin.new(pin_params)
+    @pin = Pin.new(pin_params)
 
     if @pin.save
       redirect_to '/pins'
@@ -21,14 +21,14 @@ class PinsController < ApplicationController
   private
 
     def pin_params
-      params["pin"].permit(:body).merge(:user => current_user)
+      params["pin"].permit(:description, :name, :avatar)
     end
 
     def load_new_pin
-      @pin = pin.new
+      @pin = Pin.new
     end
 
     def load_pins
-      @pins = pin.all
+      @pins = Pin.all
     end
 end
