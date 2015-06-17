@@ -21,7 +21,7 @@ class PinsController < ApplicationController
   private
 
     def pin_params
-      params["pin"].permit(:description, :name, :avatar)
+      params["pin"].permit(:description, :name, :avatar).merge(:user => current_user)
     end
 
     def load_new_pin

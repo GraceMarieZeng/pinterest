@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem "paperclip", "~> 4.2"
 
+gem 'devise'
+
 
 gem 'will_paginate', '~> 3.0.6'
 
